@@ -82,6 +82,7 @@ try {
 }
 ```
 ## 📁 File Structure
+```text
 AESCryptorProject/
 ├── ascryptorlib/
 │   ├── build.gradle.kts
@@ -89,4 +90,45 @@ AESCryptorProject/
 ├── app/
 │   └── (Your app that uses the library)
 └── settings.gradle.kts
+```
+## 🧠 How It Works
+16-byte random salt
+
+16-byte random IV
+
+PBKDF2 with HMAC SHA256 and 10,000 iterations
+
+Generates a 256-bit AES key
+
+Output format:
+```kotlin
+Base64( salt + IV + ciphertext )
+```
+🔐 Every encryption is unique, even for the same password/message combo — thanks to the random salt & IV.
+
+## ✅ Compatibility
+Android 5.0 (API 21) and above
+
+Works in both Java and Kotlin
+
+Requires no external dependencies
+
+## 🚀 How to Publish New Versions (for Maintainers)
+Make your changes
+
+Tag a version like v1.0.1
+
+Push tags to GitHub
+
+Go to JitPack
+
+Search your repo and click Build on the new version
+
+## 📝 License
+### MIT License
+
+Free to use, modify, and redistribute.
+Give credit if you fork or extend the library.
+
+
 
