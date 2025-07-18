@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.android.library)
+    id("com.android.library")
     id("maven-publish")
 }
 
@@ -8,10 +8,10 @@ version = "1.0.0"
 
 android {
     namespace = "com.aakash.ascryptorlib"
-    compileSdk = 36
+    compileSdk = 34
 
     defaultConfig {
-        minSdk = 26
+        minSdk = 21
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -30,21 +30,19 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-}
 
-dependencies {
-    implementation(libs.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+    // 🔥 This is what you're missing
+    publishing {
+        singleVariant("release")
+    }
 }
 
 afterEvaluate {
     publishing {
         publications {
             create<MavenPublication>("release") {
-                from(components["release"])
+                from(components["release"]) // now this works
+
                 groupId = "com.github.aakashsakhalkar"
                 artifactId = "AESCryptorLib"
                 version = "1.0.0"
