@@ -64,5 +64,29 @@ implementation 'com.github.aakashsakhalkar:AESCryptorLib:v1.0.0'
 ```
 
 ## ✍️ Java Usage Example
+```kotlin
 
+import com.aakash.ascryptorlib.AESCryptor;
+
+try {
+    String password = "secret123";
+    String message = "Hello, World!";
+
+    String encrypted = AESCryptor.encrypt(password, message);
+    System.out.println("Encrypted: " + encrypted);
+
+    String decrypted = AESCryptor.decrypt(password, encrypted);
+    System.out.println("Decrypted: " + decrypted);
+} catch (Exception e) {
+    e.printStackTrace();
+}
+```
+## 📁 File Structure
+AESCryptorProject/
+├── ascryptorlib/
+│   ├── build.gradle.kts
+│   └── src/main/java/com/aakash/ascryptorlib/AESCryptor.java
+├── app/
+│   └── (Your app that uses the library)
+└── settings.gradle.kts
 
