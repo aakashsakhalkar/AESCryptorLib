@@ -1,4 +1,4 @@
-package com.aakash.ascrypto;
+package com.aakash.ascryptorlib;
 
 
 import java.nio.charset.StandardCharsets;
