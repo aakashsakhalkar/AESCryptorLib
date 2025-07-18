@@ -130,7 +130,7 @@ Search your repo and click Build on the new version
 Free to use, modify, and redistribute.
 Give credit if you fork or extend the library.
 
-# Thank You
+# Thank You.
 
 
 
