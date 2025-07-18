@@ -41,10 +41,21 @@ dependencyResolutionManagement {
         maven(url = "https://jitpack.io")
     }
 }
-
-
+```
 ### Then add the dependency in `build.gradle.kts` (app-level):
 
 ```kotlin
 implementation("com.github.aakashsakhalkar:AESCryptorLib:v1.0.0")
+```
+### For Old Projects (Groovy)
+In project-level build.gradle:
+```kotlin
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
 
