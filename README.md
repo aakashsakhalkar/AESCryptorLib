@@ -1,21 +1,28 @@
-AESCryptorLib 🔐
-A lightweight, secure AES encryption/decryption library for Android. It uses PBKDF2WithHmacSHA256 for password-based key derivation and AES-256 in CBC mode with PKCS7 padding.
+# 🔐 AESCryptorLib
 
-Use it when you want to encrypt strings safely using a password — perfect for local data, message encryption, or secure configuration.
+A lightweight, secure AES encryption/decryption library for Android.
 
-Features
-✅ AES-256 CBC encryption with PKCS7 padding
+It uses **PBKDF2WithHmacSHA256** for password-based key derivation and **AES-256 in CBC mode with PKCS7 padding**.
 
-✅ Password-based key derivation (PBKDF2WithHmacSHA256)
+Use it when you want to encrypt strings securely using a password — perfect for local data storage, message encryption, or safe config values.
 
-✅ Automatically handles salt and IV
+---
 
-✅ No external dependencies
+## ✅ Features
 
-🔧 Installation
-1. Add JitPack to your project
-New Gradle (Kotlin DSL)
-settings.gradle.kts:
+- AES-256 encryption with CBC mode and PKCS7 padding  
+- Password-based key derivation using PBKDF2WithHmacSHA256  
+- Automatically handles salt and IV  
+- No external dependencies  
+- Works with Java and Kotlin  
+
+---
+
+## 🔧 Installation
+
+### New Gradle (Kotlin DSL) — `settings.gradle.kts`
+
+```kotlin
 pluginManagement {
     repositories {
         google()
@@ -23,6 +30,7 @@ pluginManagement {
         maven(url = "https://jitpack.io")
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -32,8 +40,8 @@ dependencyResolutionManagement {
     }
 }
 
-Legacy Gradle (Groovy)
-build.gradle (project-level):
+Legacy Gradle (Groovy) — build.gradle (project-level)
+
 allprojects {
     repositories {
         google()
@@ -41,12 +49,18 @@ allprojects {
         maven { url 'https://jitpack.io' }
     }
 }
-2. Add the dependency
-Kotlin:
+
+Add the dependency
+Kotlin DSL:
+
 implementation("com.github.aakashsakhalkar:AESCryptorLib:v1.0.0")
+
 Groovy:
+
 implementation 'com.github.aakashsakhalkar:AESCryptorLib:v1.0.0'
-✍️ Example
+
+✍️ Example (Java)
+
 import com.aakash.ascryptorlib.AESCryptor;
 
 try {
@@ -62,44 +76,49 @@ try {
 } catch (Exception e) {
     e.printStackTrace();
 }
+
 📁 File Structure
-Your library should live inside its own module like this:
+
 AESCryptorProject/
-│
 ├── ascryptorlib/
 │   ├── build.gradle.kts
 │   └── src/main/java/com/aakash/ascryptorlib/AESCryptor.java
-│
-└── app/
-    └── (Your actual app consuming the library)
-📦 What’s Going On Under the Hood
+├── app/
+│   └── (Your app consuming the library)
+└── settings.gradle.kts
+
+
+🧠 What’s Going On Inside
 16-byte random salt
 
 16-byte random IV
 
-PBKDF2 with 10,000 iterations to generate a 256-bit AES key
+PBKDF2 with 10,000 iterations → generates a 256-bit AES key
 
-Output is: Base64( salt + IV + ciphertext )
+Output format:
+Base64( salt + IV + ciphertext )
 
-Each encryption is unique — even if the message and password are the same — thanks to the random salt and IV.
+Each encryption is unique — even for the same message and password — thanks to the random salt and IV.
+
 ✅ Compatibility
 Android 5.0 (API 21) and above
 
-Works with both Java and Kotlin
+Works in both Java and Kotlin projects
 
-No external libraries required
+No third-party dependencies required
 
-🚀 Publishing New Versions (for Maintainers)
+🚀 Publishing New Versions (for maintainers)
 Commit your changes
 
-Tag a new release like v1.0.1
+Tag a release (e.g. v1.0.1)
 
 Push tags to GitHub
 
-Visit JitPack → Look Up your repo
+Go to jitpack.io → Look Up your repo
 
-Click Build on your new version
+Click Build on the new version
 
 📝 License
-MIT License — Free to use, modify, and redistribute.
+MIT License
+Free to use, modify, and redistribute.
 Give credit if you fork or extend the library.
