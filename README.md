@@ -62,3 +62,6 @@ allprojects {
 ```kotlin
 implementation 'com.github.aakashsakhalkar:AESCryptorLib:v1.0.0'```
 
+## ✍️ Java Usage Example
+
+
