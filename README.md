@@ -40,7 +40,7 @@ dependencyResolutionManagement {
     }
 }
 
-Legacy Gradle (Groovy) — build.gradle (project-level)
+### Legacy Gradle (Groovy) — build.gradle (project-level)
 
 allprojects {
     repositories {
@@ -50,16 +50,16 @@ allprojects {
     }
 }
 
-Add the dependency
+### Add the dependency
 Kotlin DSL:
 
 implementation("com.github.aakashsakhalkar:AESCryptorLib:v1.0.0")
 
-Groovy:
+### Groovy:
 
 implementation 'com.github.aakashsakhalkar:AESCryptorLib:v1.0.0'
 
-✍️ Example (Java)
+### ✍️ Example (Java)
 
 import com.aakash.ascryptorlib.AESCryptor;
 
@@ -77,7 +77,7 @@ try {
     e.printStackTrace();
 }
 
-📁 File Structure
+### 📁 File Structure
 
 AESCryptorProject/
 ├── ascryptorlib/
@@ -88,7 +88,7 @@ AESCryptorProject/
 └── settings.gradle.kts
 
 
-🧠 What’s Going On Inside
+### 🧠 What’s Going On Inside
 16-byte random salt
 
 16-byte random IV
@@ -100,14 +100,14 @@ Base64( salt + IV + ciphertext )
 
 Each encryption is unique — even for the same message and password — thanks to the random salt and IV.
 
-✅ Compatibility
+### ✅ Compatibility
 Android 5.0 (API 21) and above
 
 Works in both Java and Kotlin projects
 
 No third-party dependencies required
 
-🚀 Publishing New Versions (for maintainers)
+### 🚀 Publishing New Versions (for maintainers)
 Commit your changes
 
 Tag a release (e.g. v1.0.1)
@@ -118,7 +118,7 @@ Go to jitpack.io → Look Up your repo
 
 Click Build on the new version
 
-📝 License
+### 📝 License
 MIT License
 Free to use, modify, and redistribute.
 Give credit if you fork or extend the library.
