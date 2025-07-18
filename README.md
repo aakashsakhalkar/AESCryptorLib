@@ -45,5 +45,6 @@ dependencyResolutionManagement {
 
 ### Then add the dependency in `build.gradle.kts` (app-level):
 
+```kotlin
 implementation("com.github.aakashsakhalkar:AESCryptorLib:v1.0.0")
 
