@@ -58,4 +58,7 @@ allprojects {
     }
 }
 ```
+### Then add this to app-level build.gradle:
+```kotlin
+implementation 'com.github.aakashsakhalkar:AESCryptorLib:v1.0.0'```
 
