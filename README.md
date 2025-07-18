@@ -60,7 +60,8 @@ allprojects {
 ```
 ### Then add this to app-level build.gradle:
 ```kotlin
-implementation 'com.github.aakashsakhalkar:AESCryptorLib:v1.0.0'```
+implementation 'com.github.aakashsakhalkar:AESCryptorLib:v1.0.0'
+```
 
 ## ✍️ Java Usage Example
 
