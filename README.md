@@ -42,7 +42,8 @@ dependencyResolutionManagement {
     }
 }
 
-### Then add the dependency in build.gradle.kts (app-level):
+
+### Then add the dependency in `build.gradle.kts` (app-level):
 
 implementation("com.github.aakashsakhalkar:AESCryptorLib:v1.0.0")
 
