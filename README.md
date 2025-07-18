@@ -22,6 +22,8 @@ Use it when you want to encrypt strings securely using a password — perfect fo
 
 ### New Gradle (Kotlin DSL) — `settings.gradle.kts`
 
+In `settings.gradle.kts`:
+
 ```kotlin
 pluginManagement {
     repositories {
@@ -40,7 +42,12 @@ dependencyResolutionManagement {
     }
 }
 
-### Legacy Gradle (Groovy) — build.gradle (project-level)
+Then add the dependency in build.gradle.kts (app-level):
+
+implementation("com.github.aakashsakhalkar:AESCryptorLib:v1.0.0")
+
+For Old Projects (Groovy)
+In project-level build.gradle:
 
 allprojects {
     repositories {
@@ -50,16 +57,11 @@ allprojects {
     }
 }
 
-### Add the dependency
-Kotlin DSL:
-
-implementation("com.github.aakashsakhalkar:AESCryptorLib:v1.0.0")
-
-### Groovy:
+Then add this to app-level build.gradle:
 
 implementation 'com.github.aakashsakhalkar:AESCryptorLib:v1.0.0'
 
-### ✍️ Example (Java)
+✍️ Java Usage Example
 
 import com.aakash.ascryptorlib.AESCryptor;
 
@@ -72,53 +74,57 @@ try {
 
     String decrypted = AESCryptor.decrypt(password, encrypted);
     System.out.println("Decrypted: " + decrypted);
-
 } catch (Exception e) {
     e.printStackTrace();
 }
 
-### 📁 File Structure
+📁 File Structure
 
 AESCryptorProject/
 ├── ascryptorlib/
 │   ├── build.gradle.kts
 │   └── src/main/java/com/aakash/ascryptorlib/AESCryptor.java
 ├── app/
-│   └── (Your app consuming the library)
+│   └── (Your app that uses the library)
 └── settings.gradle.kts
 
-
-### 🧠 What’s Going On Inside
+🧠 How It Works
 16-byte random salt
 
 16-byte random IV
 
-PBKDF2 with 10,000 iterations → generates a 256-bit AES key
+PBKDF2 with HMAC SHA256 and 10,000 iterations
+
+Generates a 256-bit AES key
 
 Output format:
+
+scss
+Copy
+Edit
 Base64( salt + IV + ciphertext )
+🔐 Every encryption is unique, even for the same password/message combo — thanks to the random salt & IV.
 
-Each encryption is unique — even for the same message and password — thanks to the random salt and IV.
-
-### ✅ Compatibility
+✅ Compatibility
 Android 5.0 (API 21) and above
 
-Works in both Java and Kotlin projects
+Works in both Java and Kotlin
 
-No third-party dependencies required
+Requires no external dependencies
 
-### 🚀 Publishing New Versions (for maintainers)
-Commit your changes
+🚀 How to Publish New Versions (for Maintainers)
+Make your changes
 
-Tag a release (e.g. v1.0.1)
+Tag a version like v1.0.1
 
 Push tags to GitHub
 
-Go to jitpack.io → Look Up your repo
+Go to JitPack
 
-Click Build on the new version
+Search your repo and click Build on the new version
 
-### 📝 License
+📝 License
 MIT License
+
 Free to use, modify, and redistribute.
 Give credit if you fork or extend the library.
