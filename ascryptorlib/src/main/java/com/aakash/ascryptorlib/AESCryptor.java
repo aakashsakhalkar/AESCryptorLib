@@ -25,7 +25,7 @@ public final class AESCryptor {
     private static final int SALT_LENGTH = 16;
     private static final int IV_LENGTH = 16;
     private static final int KEY_LENGTH = 256;
-    private static final int PBKDF2_ITERATIONS = 10_000;
+    private static final int PBKDF2_ITERATIONS = 100_000;
 
     private AESCryptor() {}
 
